@@ -61,51 +61,51 @@
 </script>
 
 <svelte:head>
-    <meta content="Ars Nouveau Wiki | An automatically generated Wiki for Ars Nouveau" name="title"/>
+    <meta content="Minejago Wiki | An automatically generated Wiki for Minejago" name="title" />
     <meta
-            content={`This is a wiki page generated automatically from the Patchouli Data in the Ars Noveau github repository. Therefore, it's pretty janky`}
-            name="description"
+      content={`This is a wiki page generated automatically from the Modonomicon Data in the Minejago github repository. Therefore, it's pretty janky`}
+      name="description"
     />
-    <meta content={$page.url.toString()} property="og:url"/>
+    <meta content={$page.url.toString()} property="og:url" />
     <meta
-            content="Ars Nouveau Wiki | An automatically generated Wiki for Ars Nouveau"
-            property="og:title"
+      content="Minejago Wiki | An automatically generated Wiki for Minejago"
+      property="og:title"
     />
     <meta
-            content={`This is a wiki page generated automatically from the Patchouli Data in the Ars Noveau github repository. Therefore, it's pretty janky`}
-            property="og:description"
+      content={`This is a wiki page generated automatically from the Modonomicon Data in the Minejago github repository. Therefore, it's pretty janky`}
+      property="og:description"
     />
-    <title>Ars Nouveau Wiki</title>
+    <title>Minejago Wiki</title>
 </svelte:head>
 
 <Drawer>
     <div class="p-2">
-        <LanguageSelection/>
+        <LanguageSelection />
     </div>
     {#if browser}
         <div class="p-2">
-            <SmartSearch mobile={true}/>
+            <SmartSearch mobile={true} />
         </div>
         <div class="p-2">
-            <AddonMenu/>
+            <AddonMenu />
         </div>
     {/if}
-    <Navigation embedded={true}/>
+    <Navigation embedded={true} />
 </Drawer>
-<Toast position="tr"/>
-<Modal/>
+<Toast position="tr" />
+<Modal />
 
 <AppShell>
     <svelte:fragment slot="header">
-        <HeaderBar/>
+        <HeaderBar />
     </svelte:fragment>
     <svelte:fragment slot="sidebarLeft">
-        <Navigation class="hidden lg:block w-[300px]"/>
+        <Navigation class="hidden lg:block w-[300px]" />
     </svelte:fragment>
     <svelte:fragment slot="pageFooter">
-        <footer class="flex justify-end mb-1 mr-1"><p>Ars Nouveau Wiki</p></footer>
+        <footer class="flex justify-end mb-1 mr-1"><p>Minejago Wiki</p></footer>
     </svelte:fragment>
     <div class="m-4">
-        <slot/>
+        <slot />
     </div>
 </AppShell>

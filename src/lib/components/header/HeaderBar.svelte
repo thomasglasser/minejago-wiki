@@ -31,6 +31,13 @@
 	</div>
 	<svelte:fragment slot="trail">
 		<div class="hidden lg:block">
+			<p
+				class="text-sm sm:text-lg md:text-3xl font-bold uppercase mr-4"
+				id="version"
+				title="Return to main page">Mod Version: 0.0.0
+			</p>
+		</div>
+		<div class="hidden lg:block">
 			<AddonMenu />
 		</div>
 		<div class="hidden lg:block">
