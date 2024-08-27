@@ -37,7 +37,7 @@ const initalizeDynamicallyLoadedStores = (
 				]) => {
 					texturesStore.set(loadedTextures);
 					modonomiconStore.set(
-						prepareModonomicon(loadedModonomiconCategories, loadedModonomiconEntries, 'ars_nouveau')
+						prepareModonomicon(loadedModonomiconCategories, loadedModonomiconEntries, 'minejago')
 					);
 					languagesStore.set(loadedLanguages);
 					recipesStore.set(loadedRecipes);

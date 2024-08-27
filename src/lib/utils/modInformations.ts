@@ -1,7 +1,7 @@
 export const modInformations: { [x: string]: App.ModInformation } = {
 	minejago: {
 		texturePredicate: (filename: string) => {
-			return filename.includes('textures/item') || filename.includes('textures/modonomicon');
+			return filename.includes('textures/');
 		},
 		modonomiconCategoryPredicate: (filename: string) => {
 			return filename.includes('modonomicon/books/wiki/categories/');
@@ -10,17 +10,17 @@ export const modInformations: { [x: string]: App.ModInformation } = {
 			return filename.includes('modonomicon/books/wiki/entries/');
 		},
 		recipePredicate: (filename: string) => {
-			return filename.includes('recipe');
+			return filename.includes('recipe/');
 		},
 		languagePredicate: (filename: string) => {
-			return filename.includes('lang');
+			return filename.includes('lang/');
 		},
 		repositoryId: 'thomasglasser/Minejago',
 		name: 'Minejago'
 	},
 	immersion: {
 		texturePredicate: (filename: string) => {
-			return filename.includes('textures/item');
+			return filename.includes('textures/');
 		},
 		modonomiconCategoryPredicate: (filename: string) => {
 			return filename.includes('modonomicon/books/immersion_wiki/categories/');
@@ -29,10 +29,10 @@ export const modInformations: { [x: string]: App.ModInformation } = {
 			return filename.includes('modonomicon/books/immersion_wiki/entries/');
 		},
 		recipePredicate: (filename: string) => {
-			return filename.includes('recipe');
+			return filename.includes('recipe/');
 		},
 		languagePredicate: (filename: string) => {
-			return filename.includes('lang');
+			return filename.includes('lang/');
 		},
 		repositoryId: 'thomasglasser/Minejago',
 		name: 'Immersion Pack',
@@ -40,7 +40,7 @@ export const modInformations: { [x: string]: App.ModInformation } = {
 	},
 	potion_pot: {
 		texturePredicate: (filename: string) => {
-			return filename.includes('textures/item');
+			return filename.includes('textures/');
 		},
 		modonomiconCategoryPredicate: (filename: string) => {
 			return filename.includes('modonomicon/books/potion_pot_wiki/categories/');
@@ -49,10 +49,10 @@ export const modInformations: { [x: string]: App.ModInformation } = {
 			return filename.includes('modonomicon/books/potion_pot_wiki/entries/');
 		},
 		recipePredicate: (filename: string) => {
-			return filename.includes('recipe');
+			return filename.includes('recipe/');
 		},
 		languagePredicate: (filename: string) => {
-			return filename.includes('lang');
+			return filename.includes('lang/');
 		},
 		repositoryId: 'thomasglasser/Minejago',
 		name: 'Potion Pot Pack',
