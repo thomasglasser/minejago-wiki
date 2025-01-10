@@ -38,7 +38,7 @@ declare namespace App {
 		name: string;
 		id: string;
 		description: string;
-		icon: Ingredient;
+		icon: string;
 		sortnum: number;
 		entries: {
 			[x: string]: ModonomiconEntry;
@@ -154,6 +154,8 @@ declare namespace App {
 		repositoryId: string;
 		repositoryBranch?: string;
 		icon?: string;
+		download?: string;
+		listName?: string;
 		name: string;
 	}
 }

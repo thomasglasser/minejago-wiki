@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { modInformations } from '$lib/utils/modInformations';
 </script>
 
 <div class="flex flex-col justify-center items-start h-full m-2 space-y-2">
@@ -20,21 +21,25 @@
 
 	<p>You can now select which Addon Mods you want to include in the wiki! Currently available:</p>
 	<ul class="list-disc pl-8">
-		<li>Immersion Pack (included in mod)</li>
-		<li>Potion Pot Pack (included in mod)</li>
-		<!--		<li>-->
-		<!--			<a-->
-		<!--				href="https://www.curseforge.com/minecraft/mc-mods/too-many-glyphs"-->
-		<!--				rel="noopener noreferrer"-->
-		<!--				target="_blank"-->
-		<!--			>-->
-		<!--				Too Many Glyphs (Beta, repository doesn't have all the necessary information)-->
-		<!--			</a>-->
-		<!--		</li>-->
+		{#each Object.entries(modInformations) as [id, info]}
+			{#if id != 'minejago'}
+				<li>
+					{#if info.download != null}
+						<a href={info.download} rel="noopener noreferrer" target="_blank">
+							{info.listName ?? info.name}
+						</a>
+					{:else}
+						<p>
+							{info.listName ?? info.name}
+						</p>
+					{/if}
+				</li>
+			{/if}
+		{/each}
 	</ul>
 	<p>
 		Not all Addons are available for the current version and addon documentation functionality is
-		less tested than Minejago Wiki functionality. Use at your own risk.
+		less tested than Ars Nouveau Wiki functionality. Use at your own risk.
 	</p>
 	<p>
 		Direct links to addon pages or refreshing addon pages is currently not supported, since the
