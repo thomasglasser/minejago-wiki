@@ -78,7 +78,6 @@ declare namespace App {
 		type:
 			| 'minecraft:crafting_shaped'
 			| 'minecraft:crafting_shapeless'
-			| 'minejago:teapot_brewing'
 			| 'Unknown Recipe';
 	}
 
@@ -95,15 +94,6 @@ declare namespace App {
 		type: 'minecraft:crafting_shapeless' | 'ars_nouveau:book_upgrade';
 		ingredients: Array<Ingredient>;
 		result: Item;
-	}
-
-	interface TeapotBrewingRecipe extends Recipe {
-		type: 'minejago:teapot_brewing';
-		base: Potion;
-		brewing_time: IntProvider;
-		experience: number;
-		ingredient: Ingredient;
-		result: Potion;
 	}
 
 	interface Advancement {

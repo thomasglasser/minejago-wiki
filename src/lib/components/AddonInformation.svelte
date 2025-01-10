@@ -12,7 +12,7 @@
 	export let addonName: string;
 </script>
 
-{#if modInformations[addonName]?.name !== 'minejago' && modInformations[addonName]?.icon}
+{#if modInformations[addonName]?.name !== 'mineraculous' && modInformations[addonName]?.icon}
 	<img
 		alt={`Added by ${modInformations[addonName].name}`}
 		class="sourceIcon"

@@ -7,7 +7,7 @@ import {
 import { loadedAddonStore } from '$lib/stores/addonStore';
 
 const getModLabel = (label: string): string | undefined => {
-	const loadedMods = ['minejago', ...get(loadedAddonStore)];
+	const loadedMods = ['mineraculous', ...get(loadedAddonStore)];
 	let labelToReturn = label;
 	let foundLabel;
 	for (let i = 0; i < loadedMods.length; i++) {

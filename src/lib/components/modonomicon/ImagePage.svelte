@@ -9,7 +9,7 @@
 	export let images: Array<string>;
 
 	$: mappedImages = images
-		? images.map((image) => getTexture(`minejago:${getFileName(image)}`, $texturesStore))
+		? images.map((image) => getTexture(`mineraculous:${getFileName(image)}`, $texturesStore))
 		: [];
 </script>
 

@@ -56,21 +56,21 @@
 </script>
 
 <svelte:head>
-    <meta content="Minejago Wiki | An automatically generated Wiki for Minejago" name="title" />
+    <meta content="Mineraculous Wiki | An automatically generated Wiki for Mineraculous" name="title" />
     <meta
-      content={`This is a wiki page generated automatically from the Modonomicon Data in the Minejago github repository. Therefore, it's pretty janky`}
+      content={`This is a wiki page generated automatically from the Modonomicon Data in the Mineraculous github repository. Therefore, it's pretty janky`}
       name="description"
     />
     <meta content={$page.url.toString()} property="og:url" />
     <meta
-      content="Minejago Wiki | An automatically generated Wiki for Minejago"
+      content="Mineraculous Wiki | An automatically generated Wiki for Mineraculous"
       property="og:title"
     />
     <meta
-      content={`This is a wiki page generated automatically from the Modonomicon Data in the Minejago github repository. Therefore, it's pretty janky`}
+      content={`This is a wiki page generated automatically from the Modonomicon Data in the Mineraculous github repository. Therefore, it's pretty janky`}
       property="og:description"
     />
-    <title>Minejago Wiki</title>
+    <title>Mineraculous Wiki</title>
 </svelte:head>
 
 <Drawer>
@@ -98,7 +98,7 @@
         <Navigation class="hidden lg:block w-[300px]" />
     </svelte:fragment>
     <svelte:fragment slot="pageFooter">
-        <footer class="flex justify-end mb-1 mr-1"><p>Minejago Wiki</p></footer>
+        <footer class="flex justify-end mb-1 mr-1"><p>Mineraculous Wiki</p></footer>
     </svelte:fragment>
     <div class="m-4">
         <slot />

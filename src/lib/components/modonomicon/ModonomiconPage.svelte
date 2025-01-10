@@ -25,8 +25,6 @@
 			case 'modonomicon:image':
 			case 'image':
 				return ImagePage;
-			case 'minejago:teapot_brewing':
-				return ArsPage;
 			default:
 				return undefined;
 		}

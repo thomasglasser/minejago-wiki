@@ -25,8 +25,8 @@
 		<a
 			class="hidden sm:block text-sm sm:text-lg md:text-3xl font-bold uppercase mr-4"
 			href="/"
-			id="minejago_wiki"
-			title="Return to main page">Minejago Wiki</a
+			id="mineraculous_wiki"
+			title="Return to main page">Mineraculous Wiki</a
 		>
 	</div>
 	<svelte:fragment slot="trail">

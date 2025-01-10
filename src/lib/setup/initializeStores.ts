@@ -18,15 +18,15 @@ const initalizeMinecraftLanguageStore = (
 const initalizeDynamicallyLoadedStores = (
 	fetch: (info: RequestInfo, init?: RequestInit) => Promise<Response>
 ) => {
-	return fetch('/minejago.zip')
+	return fetch('/mineraculous.zip')
 		.then(prepareZip)
 		.then(async function (zip) {
 			return Promise.all([
-				getTextureFiles(modInformations.minejago.texturePredicate, zip, 'minejago'),
-				getMatchingJSONFiles(modInformations.minejago.modonomiconCategoryPredicate, zip),
-				getMatchingJSONFiles(modInformations.minejago.modonomiconEntryPredicate, zip),
-				getMatchingJSONFiles(modInformations.minejago.languagePredicate, zip),
-				getMatchingJSONFiles(modInformations.minejago.recipePredicate, zip)
+				getTextureFiles(modInformations.mineraculous.texturePredicate, zip, 'mineraculous'),
+				getMatchingJSONFiles(modInformations.mineraculous.modonomiconCategoryPredicate, zip),
+				getMatchingJSONFiles(modInformations.mineraculous.modonomiconEntryPredicate, zip),
+				getMatchingJSONFiles(modInformations.mineraculous.languagePredicate, zip),
+				getMatchingJSONFiles(modInformations.mineraculous.recipePredicate, zip)
 			]).then(
 				([
 					loadedTextures,
@@ -37,7 +37,7 @@ const initalizeDynamicallyLoadedStores = (
 				]) => {
 					texturesStore.set(loadedTextures);
 					modonomiconStore.set(
-						prepareModonomicon(loadedModonomiconCategories, loadedModonomiconEntries, 'minejago')
+						prepareModonomicon(loadedModonomiconCategories, loadedModonomiconEntries, 'mineraculous')
 					);
 					languagesStore.set(loadedLanguages);
 					recipesStore.set(loadedRecipes);
