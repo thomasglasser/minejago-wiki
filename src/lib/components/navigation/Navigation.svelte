@@ -1,13 +1,16 @@
 <script lang="ts" context="module">
-	import { getItemSrc } from '$lib/textures.js';
+	import { getItemSrc, getTexture } from '$lib/textures.js';
 	import { notDisplayableItems } from '$lib/components/modonomicon/RecipeDisplay/notDisplayableItems';
+	import { getFileName } from '$lib/utils/fileName';
 
 	const checkNavIcon = (iconSrc: string, textureStore: App.TextureDictionary) => {
 		if (notDisplayableItems.includes(iconSrc)) {
 			return undefined;
 		}
 
-		return getItemSrc(iconSrc, textureStore);
+		if (iconSrc.item !== undefined)
+			return getItemSrc(iconSrc.item, textureStore);
+		return getTexture(`${iconSrc.texture.split(':')?.at(0)}:${getFileName(iconSrc.texture)}`, textureStore);
 	};
 </script>
 
@@ -42,7 +45,7 @@
 		{#each sortedCategories as category, i}
 			<AccordionItem open={$currentExpandedCategory === category.id}>
 				<svelte:fragment slot="lead">
-					{@const iconSrc = checkNavIcon(category.icon.item, $texturesStore)}
+					{@const iconSrc = checkNavIcon(category.icon, $texturesStore)}
 					{#if iconSrc}
 						<img alt={`Icon for category ${category.name}`} src={iconSrc} class="navIcon" />
 					{:else}
