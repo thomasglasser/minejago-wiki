@@ -1,7 +1,6 @@
 <script lang="ts">
 	import TextPage from '$lib/components/modonomicon/TextPage.svelte';
 	import CraftingPage from '$lib/components/modonomicon/CraftingPage.svelte';
-	import RelationsPage from '$lib/components/modonomicon/RelationsPage.svelte';
 	import ImagePage from '$lib/components/modonomicon/ImagePage.svelte';
 	import SpotlightPage from '$lib/components/modonomicon/SpotlightPage.svelte';``
 
