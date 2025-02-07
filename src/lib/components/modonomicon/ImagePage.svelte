@@ -1,6 +1,6 @@
 <script lang="ts">
 	import FormattedLabel from '$lib/components/modonomicon/FormattedLabel.svelte';
-	import { getTexture } from '$lib/textures';
+	import { getItemSrc } from '$lib/textures';
 	import { getFileName } from '$lib/utils/fileName';
 	import { texturesStore } from '$lib/stores/fileStore';
 
@@ -9,7 +9,7 @@
 	export let images: Array<string>;
 
 	$: mappedImages = images
-		? images.map((image) => getTexture(`mineraculous:${getFileName(image)}`, $texturesStore))
+		? images.map((image) => getItemSrc(`${image.split(':')?.at(0)}:${getFileName(image)}`, $texturesStore))
 		: [];
 </script>
 
