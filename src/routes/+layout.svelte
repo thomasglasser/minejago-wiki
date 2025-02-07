@@ -40,7 +40,7 @@
     selectedAddonStore.subscribe((newSelectedAddonStoreValue) => {
         // Redirect to main page to avoid current page being an addon page that is going to be unloaded
         setTimeout(() => {
-            if (browser && window.location.pathname !== "/" && $currentPageSource !== 'ars_nouveau' && !newSelectedAddonStoreValue.includes($currentPageSource)) {
+            if (browser && window.location.pathname !== "/" && $currentPageSource !== 'mineraculous' && !newSelectedAddonStoreValue.includes($currentPageSource)) {
                 console.log($currentPageSource);
                 console.log(get(currentPageSource));
                 window.location.replace("/");

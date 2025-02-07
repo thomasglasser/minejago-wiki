@@ -10,7 +10,7 @@
 	</p>
 	<p>
 		If you encounter any issues, please reach out in the Mineraculous Discord found <a
-			href="/category/mod_news/entry/mod_news"
+			href="/category/support/entry/contact"
 			rel="noopener noreferrer">here</a
 		>
 		or submit an issue
