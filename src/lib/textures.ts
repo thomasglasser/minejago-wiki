@@ -25,7 +25,7 @@ export const getItemSrc = (item: string, textures: App.TextureDictionary) => {
 	if (src === 'Unknown Texture') {
 		if (['clock', 'compass'].includes(itemId)) {
 			src = `/minecraft/textures/item/${itemId}_12.png`;
-		} else if (item.includes('mineraculous')) {
+		} else if (item?.includes('mineraculous')) {
 			src = `/mineraculous/textures/item/${itemId}.png`;
 		} else {
 			src = `/minecraft/textures/item/${itemId}.png`;
