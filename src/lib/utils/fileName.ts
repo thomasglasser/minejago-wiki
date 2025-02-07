@@ -1,2 +1,5 @@
-export const getFileName = (zipName: string): string =>
-	zipName.split('/')?.pop()?.split('.')[0] || 'unknown';
+export const getFileName = (zipName: string): string => {
+	if (zipName.includes('textures') && !zipName.includes('item'))
+		return zipName.substring(zipName.indexOf('/') + 1).split('.')[0] || 'unknown';
+	return zipName.split('/')?.pop()?.split('.')[0] || 'unknown';
+}

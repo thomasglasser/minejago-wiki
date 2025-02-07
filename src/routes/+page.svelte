@@ -10,7 +10,7 @@
 	</p>
 	<p>
 		If you encounter any issues, please reach out in the Mineraculous Discord found <a
-			href="/category/mod_news/entry/mod_news"
+			href="/category/support/entry/contact"
 			rel="noopener noreferrer">here</a
 		>
 		or submit an issue
@@ -39,7 +39,7 @@
 	</ul>
 	<p>
 		Not all Addons are available for the current version and addon documentation functionality is
-		less tested than Ars Nouveau Wiki functionality. Use at your own risk.
+		less tested than Minejago Wiki functionality. Use at your own risk.
 	</p>
 	<p>
 		Direct links to addon pages or refreshing addon pages is currently not supported, since the

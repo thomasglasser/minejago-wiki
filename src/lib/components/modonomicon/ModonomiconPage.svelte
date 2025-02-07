@@ -1,10 +1,8 @@
 <script lang="ts">
 	import TextPage from '$lib/components/modonomicon/TextPage.svelte';
 	import CraftingPage from '$lib/components/modonomicon/CraftingPage.svelte';
-	import LinkPage from '$lib/components/modonomicon/LinkPage.svelte';
-	import RelationsPage from '$lib/components/modonomicon/RelationsPage.svelte';
-	import ArsPage from '$lib/components/modonomicon/ArsPage.svelte';
 	import ImagePage from '$lib/components/modonomicon/ImagePage.svelte';
+	import SpotlightPage from '$lib/components/modonomicon/SpotlightPage.svelte';
 
 	export let modonomiconPage: App.ModonomiconPage;
 
@@ -16,15 +14,12 @@
 			case 'modonomicon:crafting':
 			case 'crafting':
 				return CraftingPage;
-			case 'modonomicon:link':
-			case 'link':
-				return LinkPage;
-			case 'modonomicon:relations':
-			case 'relations':
-				return RelationsPage;
 			case 'modonomicon:image':
 			case 'image':
 				return ImagePage;
+			case 'modonomicon:spotlight':
+			case 'spotlight':
+				return SpotlightPage;
 			default:
 				return undefined;
 		}
