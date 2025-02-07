@@ -39,7 +39,7 @@
 	</ul>
 	<p>
 		Not all Addons are available for the current version and addon documentation functionality is
-		less tested than Minejago Wiki functionality. Use at your own risk.
+		less tested than Mineraculous Wiki functionality. Use at your own risk.
 	</p>
 	<p>
 		Direct links to addon pages or refreshing addon pages is currently not supported, since the
