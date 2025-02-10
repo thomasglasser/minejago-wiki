@@ -13,9 +13,9 @@
     import {get} from "svelte/store";
     import {subscribeToAddonStore} from "$lib/setup/loadAddonFiles";
     import {onMount} from "svelte";
-	import LanguageSelection from '$lib/components/LanguageSelection.svelte';
-	import SmartSearch from '$lib/components/search/SmartSearch.svelte';
-	import AddonMenu from '$lib/components/addonMenu/AddonMenu.svelte';
+    import LanguageSelection from '$lib/components/LanguageSelection.svelte';
+    import SmartSearch from '$lib/components/search/SmartSearch.svelte';
+    import AddonMenu from '$lib/components/addonMenu/AddonMenu.svelte';
     import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
     import { storePopup } from '@skeletonlabs/skeleton';
 
@@ -30,7 +30,12 @@
     // Lifecycle Events
     afterNavigate(() => {
         // Store current page route URL
-        storeCurrentUrl.set($page.url.pathname);
+        if (get(storeCurrentUrl) !== $page.url.pathname) {
+            if (get(storeCurrentUrl) !== undefined) {
+                location.reload();
+            }
+            storeCurrentUrl.set($page.url.pathname);
+        }
         // Scroll to top
         const elemPage = document.querySelector('#page');
         if (elemPage !== null) {
