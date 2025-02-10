@@ -30,7 +30,12 @@
     // Lifecycle Events
     afterNavigate(() => {
         // Store current page route URL
-        storeCurrentUrl.set($page.url.pathname);
+        if (get(storeCurrentUrl) !== $page.url.pathname) {
+            if (get(storeCurrentUrl) !== undefined) {
+                location.reload();
+            }
+            storeCurrentUrl.set($page.url.pathname);
+        }
         // Scroll to top
         const elemPage = document.querySelector('#page');
         if (elemPage !== null) {
