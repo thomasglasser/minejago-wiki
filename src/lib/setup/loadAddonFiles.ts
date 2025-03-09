@@ -6,7 +6,6 @@ import {
 	recipesStore,
 	texturesStore
 } from '$lib/stores/fileStore';
-import { getAddonURL } from '$lib/utils/apiUtils';
 import { modInformations } from '$lib/utils/modInformations';
 import { prepareZip } from '$lib/setup/prepareZip';
 import { getMatchingJSONFiles, getTextureFiles } from '$lib/setup/loadFiles';
@@ -43,7 +42,7 @@ const mergeDeep = (target?: object, ...sources: Array<object>): object => {
 const loadAndStoreAddonData = (addonToBeLoaded: string) => {
 	const addonInformation = modInformations[addonToBeLoaded];
 	if (addonInformation) {
-		fetch(getAddonURL(addonInformation.repositoryId, addonInformation.repositoryBranch))
+		fetch(`/${addonToBeLoaded}.zip`)
 			.then(prepareZip)
 			.then(async function (zip) {
 				return Promise.all([

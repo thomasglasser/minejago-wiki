@@ -141,8 +141,6 @@ declare namespace App {
 		recipePredicate: (filename: string) => boolean;
 		languagePredicate: (filename: string) => boolean;
 		advancementPredicate?: (filename: string) => boolean;
-		repositoryId: string;
-		repositoryBranch?: string;
 		icon?: string;
 		download?: string;
 		listName?: string;

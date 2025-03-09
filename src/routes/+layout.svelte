@@ -31,7 +31,7 @@
     afterNavigate(() => {
         // Store current page route URL
         if (get(storeCurrentUrl) !== $page.url.pathname) {
-            if (get(storeCurrentUrl) !== undefined) {
+            if (get(storeCurrentUrl) !== undefined && $currentPageSource === 'mineraculous') {
                 location.reload();
             }
             storeCurrentUrl.set($page.url.pathname);
