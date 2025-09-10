@@ -1,14 +1,9 @@
 <script lang="ts" context="module">
 	import { getItemSrc } from '$lib/textures.js';
-	import { notDisplayableItems } from '$lib/components/modonomicon/RecipeDisplay/notDisplayableItems';
 	import { getTexture } from '$lib/textures';
 	import { getFileName } from '$lib/utils/fileName';
 
 	const checkNavIcon = (iconSrc: string, textureStore: App.TextureDictionary) => {
-		if (notDisplayableItems.includes(iconSrc)) {
-			return undefined;
-		}
-
 		if (iconSrc.item !== undefined)
 			return getItemSrc(iconSrc.item, textureStore);
 		return getTexture(`${iconSrc.texture.split(':')?.at(0)}:${getFileName(iconSrc.texture)}`, textureStore);

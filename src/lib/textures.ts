@@ -1,7 +1,8 @@
 import { getIdFromResourceLocation } from '$lib/utils/idResolver';
+import { overriddenDisplayableItems } from '$lib/components/modonomicon/RecipeDisplay/overriddenDisplayableItems';
 
 const mapSpecialTextures = (texture: string) => {
-	if (!texture) {
+	if (!texture || overriddenDisplayableItems.includes(texture)) {
 		return '';
 	}
 
