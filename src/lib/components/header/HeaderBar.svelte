@@ -34,7 +34,7 @@
 			<p
 				class="text-sm sm:text-lg md:text-3xl font-bold uppercase mr-4"
 				id="version"
-				title="Return to main page">Mod Version: 1.0.0-beta2
+				title="Return to main page">Mod Version: 1.0.0-beta2.2
 			</p>
 		</div>
 		<div class="hidden lg:block">
