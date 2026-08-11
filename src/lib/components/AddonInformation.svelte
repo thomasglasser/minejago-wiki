@@ -27,8 +27,7 @@
 
 <style>
 	.sourceIcon {
-		width: 30px;
-		height: 30px;
-		image-rendering: pixelated;
+		width: 32px;
+		height: 32px;
 	}
 </style>

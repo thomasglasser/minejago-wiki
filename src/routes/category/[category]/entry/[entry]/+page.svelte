@@ -12,11 +12,11 @@
 	export let data: App.PageData;
 
 	$: containingCategory = $modonomiconStore[data?.category];
-	$: displayedEntry = containingCategory.entries[data?.entry];
+	$: displayedEntry = containingCategory?.entries?.[data?.entry];
 	$: entryName = $labelStore(displayedEntry?.name);
 	$: $currentExpandedCategory = data?.category ? data.category : $currentExpandedCategory;
 	$: $currentPageSource = displayedEntry ? displayedEntry?.source : $currentPageSource;
-	$: advancementTitle = displayedEntry.advancement
+	$: advancementTitle = displayedEntry?.advancement
 		? $advancementStore
 			? $advancementStore[displayedEntry.advancement]?.display?.title?.translate ||
 			  'unknown Advancement'
@@ -28,7 +28,7 @@
 
 <h2 class="text-center flex items-center justify-center">
 	<Label label={displayedEntry?.name} />
-	<AddonInformation addonName={displayedEntry.source} position="bottom" />
+	<AddonInformation addonName={displayedEntry?.source} position="bottom" />
 </h2>
 
 {#if advancementTitle}
@@ -44,7 +44,7 @@
 					<div class="flex justify-center">
 						<div class="flex flex-col justify-start items-start max-w-prose h-full m-4">
 							<div class="flex flex-col">
-								{#each displayedEntry?.pages as page}
+								{#each displayedEntry?.pages || [] as page}
 									<ModonomiconPage modonomiconPage={page} />
 								{/each}
 							</div>
@@ -58,7 +58,7 @@
 	<div class="flex justify-center">
 		<div class="flex flex-col justify-start items-start max-w-prose h-full m-4">
 			<div class="flex flex-col">
-				{#each displayedEntry?.pages as page}
+				{#each displayedEntry?.pages || [] as page}
 					<ModonomiconPage modonomiconPage={page} />
 				{/each}
 			</div>

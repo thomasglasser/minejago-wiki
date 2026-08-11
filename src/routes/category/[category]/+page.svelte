@@ -17,9 +17,9 @@
 <svelte:head><title>{categoryName}</title></svelte:head>
 
 <h2 class="text-center flex items-center justify-center">
-	<Label label={displayedCategory.name} />
-	<AddonInformation addonName={displayedCategory.source} position="bottom" />
+	<Label label={displayedCategory?.name} />
+	<AddonInformation addonName={displayedCategory?.source} position="bottom" />
 </h2>
 <div class="flex flex-col justify-start items-center h-full m-4">
-	<p><Label label={displayedCategory.description} /></p>
+	<p><Label label={displayedCategory?.description} /></p>
 </div>

@@ -37,8 +37,7 @@
 
 <style>
 	img {
-		height: 30px;
-		width: 30px;
-		image-rendering: pixelated;
+		height: 32px;
+		width: 32px;
 	}
 </style>
