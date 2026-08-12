@@ -38,8 +38,8 @@ declare namespace App {
 		name: string;
 		id: string;
 		description: string;
-		icon: string;
-		sortnum: number;
+		icon: any;
+		sort_number?: number;
 		entries: {
 			[x: string]: ModonomiconEntry;
 		};
@@ -48,10 +48,12 @@ declare namespace App {
 
 	interface ModonomiconEntry {
 		category: string;
-		icon: string;
+		icon: any;
 		name: string;
 		pages: Array<ModonomiconPage>;
 		source: string;
+		sort_number?: number;
+		advancement?: string;
 	}
 
 	interface Item {
@@ -62,7 +64,7 @@ declare namespace App {
 		tag: string;
 	}
 
-	type Ingredient = Tag & Item & {};
+	type Ingredient = Tag | Item;
 
 	interface Potion {
 		potion: string;

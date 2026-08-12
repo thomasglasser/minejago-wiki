@@ -10,8 +10,8 @@
 	export let recipe2: string;
 	export let title: string;
 
-	$: recipeData = getRecipe(recipe, $recipesStore) as App.Recipe;
-	$: recipeData2 = getRecipe(recipe2, $recipesStore) as App.Recipe;
+	$: recipeData = getRecipe(recipe, $recipesStore) as any;
+	$: recipeData2 = getRecipe(recipe2, $recipesStore) as any;
 	$: displayedComponent =
 		recipeData.type === 'minecraft:crafting_shaped' ? ShapedRecipe : ShapelessRecipe;
 	$: displayedComponent2 =
@@ -24,9 +24,17 @@
 	</h4>
 {/if}
 {#if recipeData.type !== 'Unknown Recipe'}
-	<svelte:component this={displayedComponent} {recipeData} />
+	{#if recipeData.type === 'minecraft:crafting_shaped'}
+		<ShapedRecipe {recipeData} />
+	{:else}
+		<ShapelessRecipe {recipeData} />
+	{/if}
 {/if}
 {#if recipe2 && recipeData2.type !== 'Unknown Recipe'}
-	<svelte:component this={displayedComponent2} recipeData={recipeData2} />
+	{#if recipeData2.type === 'minecraft:crafting_shaped'}
+		<ShapedRecipe recipeData={recipeData2} />
+	{:else}
+		<ShapelessRecipe recipeData={recipeData2} />
+	{/if}
 {/if}
 <RecipeWarning />

@@ -1,8 +1,7 @@
 <script lang="ts">
-    import '../theme.postcss';
-    import '@skeletonlabs/skeleton/styles/all.css';
     import '../app.postcss';
-    import {AppShell, Drawer, Modal, Toast, toastStore} from '@skeletonlabs/skeleton';
+    import '../theme.postcss';
+    import {AppShell, Drawer, Modal, Toast, getToastStore, initializeStores} from '@skeletonlabs/skeleton';
     import {page} from '$app/stores';
     import {afterNavigate} from '$app/navigation';
     import {currentPageSource, storeCurrentUrl} from '$lib/stores/uiState';
@@ -20,7 +19,10 @@
     import { storePopup } from '@skeletonlabs/skeleton';
 
     storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
-
+    initializeStores();
+    
+    const toastStore = getToastStore();
+    
     onMount(() => {
         if (browser) {
             return subscribeToAddonStore()
@@ -31,9 +33,6 @@
     afterNavigate(() => {
         // Store current page route URL
         if (get(storeCurrentUrl) !== $page.url.pathname) {
-            if (get(storeCurrentUrl) !== undefined && $currentPageSource === 'mineraculous') {
-                location.reload();
-            }
             storeCurrentUrl.set($page.url.pathname);
         }
         // Scroll to top

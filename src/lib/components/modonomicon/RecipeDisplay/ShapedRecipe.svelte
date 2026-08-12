@@ -28,7 +28,7 @@
 				{#if craftingGridSlot}
 					<Ingredient ingredient={craftingGridSlot} />
 				{:else}
-					<div />
+					<div></div>
 				{/if}
 			{/each}
 		</div>

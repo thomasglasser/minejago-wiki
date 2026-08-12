@@ -20,5 +20,5 @@ export const prepareModonomicon = (
 			categories[category].entries = { ...categories[category].entries, [key]: value };
 		});
 	}
-	return categories;
+	return categories || {};
 };

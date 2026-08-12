@@ -1,33 +1,31 @@
 <script lang="ts">
+	export let addonName: string;
+	export let position: any = 'bottom';
+
 	import { modInformations } from '$lib/utils/modInformations';
 	import { popup, type PopupSettings } from '@skeletonlabs/skeleton';
 
-	const popupId = String(Math.random());
-	let popupSettings: PopupSettings = {
+	const uniqueId = `addonPopup-${Math.random().toString(36).substr(2, 9)}`;
+	let addonPopupSettings: PopupSettings = {
 		event: 'hover',
-		placement: 'bottom',
-		target: popupId
+		target: uniqueId,
+		placement: position
 	};
-
-	export let addonName: string;
 </script>
 
-{#if modInformations[addonName]?.name !== 'mineraculous' && modInformations[addonName]?.icon}
+{#if modInformations[addonName] && addonName !== 'mineraculous'}
 	<img
-		alt={`Added by ${modInformations[addonName].name}`}
-		class="sourceIcon"
+		use:popup={addonPopupSettings}
 		src={modInformations[addonName].icon}
-		use:popup={popupSettings}
+		alt={`${addonName} logo`}
+		class="w-8 h-8 object-contain drop-shadow-sm hover:scale-110 transition-transform duration-200 rounded-md"
 	/>
-	<div data-popup={popupId} class="text-secondary-500 card variant-filled-primary p-4">
+
+	<div class="card p-4 variant-filled-tertiary z-50 text-sm" data-popup={uniqueId}>
 		{`Added by ${modInformations[addonName].name}`}
-		<div class="arrow variant-filled-primary" />
+		<div class="arrow variant-filled-tertiary"></div>
 	</div>
 {/if}
 
 <style>
-	.sourceIcon {
-		width: 32px;
-		height: 32px;
-	}
 </style>

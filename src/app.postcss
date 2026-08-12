@@ -1,6 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body {
 	@apply h-screen overflow-hidden;
+	@apply bg-surface-50 dark:bg-surface-900 text-surface-900 dark:text-surface-50;
 	padding-bottom: env(safe-area-inset-bottom, 20px);
 }
 
@@ -45,14 +50,6 @@ body {
 	image-rendering: pixelated;
 }
 
-.navSelected {
-	color: rgb(var(--theme-font-color-dark));
-	@apply !bg-primary-500;
-}
-.dark .navSelected {
-	color: rgb(var(--theme-font-color-base));
-}
-
 @media (min-width: 1024px) {
 	.craftingGridItem {
 		width: 110px;
@@ -88,4 +85,17 @@ body {
 
 .accordion-summary-lead {
 	flex-shrink: 0;
+}
+
+/* UI/UX Global Enhancements */
+.glass-panel {
+	@apply bg-surface-100/70 dark:bg-surface-800/70 backdrop-blur-md border border-surface-200/50 dark:border-surface-700/50 shadow-xl;
+}
+
+.glass-header {
+	@apply bg-surface-50/80 dark:bg-surface-900/80 backdrop-blur-lg border-b border-surface-200/50 dark:border-surface-700/50 shadow-sm;
+}
+
+.hover-card {
+	@apply transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-2xl hover:border-primary-500/30;
 }

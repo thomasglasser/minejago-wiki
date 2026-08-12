@@ -9,7 +9,7 @@
 
 	$: resolvedTag = resolveTag(tag);
 	$: displayAsText = resolvedTag?.includes('block') || resolvedTag?.includes('Any');
-	$: resolvedTexture = getTexture(resolvedTag, $texturesStore);
+	$: resolvedTexture = getTexture(resolvedTag || '', $texturesStore);
 	$: src =
 		!displayAsText && resolvedTexture !== 'Unknown Texture'
 			? resolvedTexture

@@ -7,56 +7,55 @@ import { initializeSearch } from '$lib/setup/initializeSearch';
 import { modInformations } from '$lib/utils/modInformations';
 import { prepareZip } from '$lib/setup/prepareZip';
 
-const initalizeMinecraftLanguageStore = (
+const initalizeMinecraftLanguageStore = async (
 	fetch: (info: RequestInfo, init?: RequestInit) => Promise<Response>
 ) => {
-	return fetch('/minecraft/lang/en_us.json')
-		.then((response) => response.json())
-		.then((languageFile) => minecraftLanguageStore.set(languageFile));
+	const response = await fetch('/minecraft/lang/en_us.json');
+	const languageFile = await response.json();
+	minecraftLanguageStore.set(languageFile);
 };
 
-const initalizeDynamicallyLoadedStores = (
+const initalizeDynamicallyLoadedStores = async (
 	fetch: (info: RequestInfo, init?: RequestInit) => Promise<Response>
 ) => {
-	return fetch('/mineraculous.zip')
-		.then(prepareZip)
-		.then(async function (zip) {
-			return Promise.all([
-				getTextureFiles(modInformations.mineraculous.texturePredicate, zip, 'mineraculous'),
-				getMatchingJSONFiles(modInformations.mineraculous.modonomiconCategoryPredicate, zip),
-				getMatchingJSONFiles(modInformations.mineraculous.modonomiconEntryPredicate, zip),
-				getMatchingJSONFiles(modInformations.mineraculous.languagePredicate, zip),
-				getMatchingJSONFiles(modInformations.mineraculous.recipePredicate, zip)
-			]).then(
-				([
-					loadedTextures,
-					loadedModonomiconCategories,
-					loadedModonomiconEntries,
-					loadedLanguages,
-					loadedRecipes
-				]) => {
-					texturesStore.set(loadedTextures);
-					modonomiconStore.set(
-						prepareModonomicon(loadedModonomiconCategories, loadedModonomiconEntries, 'mineraculous')
-					);
-					languagesStore.set(loadedLanguages);
-					recipesStore.set(loadedRecipes);
-					storesLoaded.set(true);
-					setTimeout(() => {
-						storesLoaded.set(false);
-					}, 86400000 /* stores should be refreshed after 1 day if the server is on for so long */);
-					if (browser) {
-						initializeSearch(loadedModonomiconCategories, loadedModonomiconEntries);
-					}
-				}
-			);
-		});
+	const response = await fetch('/mineraculous.zip');
+	const zip = await prepareZip(response);
+
+	const [
+		loadedTextures,
+		loadedModonomiconCategories,
+		loadedModonomiconEntries,
+		loadedLanguages,
+		loadedRecipes
+	] = await Promise.all([
+		getTextureFiles(modInformations.mineraculous.texturePredicate, zip, 'mineraculous'),
+		getMatchingJSONFiles(modInformations.mineraculous.modonomiconCategoryPredicate, zip),
+		getMatchingJSONFiles(modInformations.mineraculous.modonomiconEntryPredicate, zip),
+		getMatchingJSONFiles(modInformations.mineraculous.languagePredicate, zip),
+		getMatchingJSONFiles(modInformations.mineraculous.recipePredicate, zip)
+	]);
+
+	texturesStore.set(loadedTextures);
+	modonomiconStore.set(
+		prepareModonomicon(loadedModonomiconCategories, loadedModonomiconEntries, 'mineraculous')
+	);
+	languagesStore.set(loadedLanguages);
+	recipesStore.set(loadedRecipes);
+	storesLoaded.set(true);
+	
+	setTimeout(() => {
+		storesLoaded.set(false);
+	}, 86400000 /* stores should be refreshed after 1 day if the server is on for so long */);
+	
+	if (browser) {
+		initializeSearch(loadedModonomiconCategories, loadedModonomiconEntries);
+	}
 };
 
-export const initializeStores = (
+export const initializeStores = async (
 	fetch: (info: RequestInfo, init?: RequestInit) => Promise<Response>
 ) => {
-	return Promise.all([
+	await Promise.all([
 		initalizeMinecraftLanguageStore(fetch),
 		initalizeDynamicallyLoadedStores(fetch)
 	]);

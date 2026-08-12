@@ -23,18 +23,18 @@
 	 * Obtain a reference to the `input` element
 	 * @type {HTMLInputElement}
 	 */
-	export let ref = null;
+	export let ref: any = null;
 
 	import { createEventDispatcher, onMount, afterUpdate } from 'svelte';
 
 	const dispatch = createEventDispatcher();
 
 	let prevValue = value;
-	let timeout = undefined;
+	let timeout: any = undefined;
 	let calling = false;
 
-	/** @type {() => any;} */
-	function debounceFn(fn) {
+	/** @type {(...args: any[]) => any} */
+	function debounceFn(fn: (...args: any[]) => any) {
 		if (calling) return;
 		calling = true;
 		timeout = setTimeout(() => {

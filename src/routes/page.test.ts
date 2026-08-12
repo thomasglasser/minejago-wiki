@@ -1,8 +1,7 @@
 import '@testing-library/jest-dom';
-
 import { render, screen } from '@testing-library/svelte';
-
 import Page from './+page.svelte';
+import { describe, test, expect } from 'vitest';
 
 describe('Index Page', () => {
 	test('should show file upload', () => {

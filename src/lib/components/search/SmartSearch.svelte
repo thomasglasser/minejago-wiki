@@ -26,12 +26,12 @@
 
 	$: results = getSearchResults(value)
 		.slice(0, 5)
-		.map((foundValue) => foundValue.item);
+		.map((foundValue: any) => foundValue.item);
 </script>
 
 <div
 	aria-controls="search-dropdown"
-	aria-expanded={focus && results}
+	aria-expanded={!!(focus && results?.length)}
 	aria-haspopup="listbox"
 	aria-owns="listbox"
 	bind:this={searchElement}
