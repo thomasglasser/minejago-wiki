@@ -15,6 +15,7 @@
 	import LanguageSelection from '$lib/components/LanguageSelection.svelte';
 	import SmartSearch from '$lib/components/search/SmartSearch.svelte';
 	import AddonMenu from '$lib/components/addonMenu/AddonMenu.svelte';
+	import { MOD_VERSION } from '$lib/utils/modInformations';
     import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
     import { storePopup } from '@skeletonlabs/skeleton';
 
@@ -86,7 +87,7 @@
             Mineraculous Wiki
         </a>
         <span class="badge variant-soft-primary text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full">
-            1.0.0-beta14
+            {MOD_VERSION}
         </span>
     </div>
     <div class="p-2">

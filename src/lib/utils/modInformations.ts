@@ -1,3 +1,10 @@
+export const MOD_VERSION = '1.0.0-beta14';
+
+export const getShortVersion = (version: string = MOD_VERSION): string => {
+	const match = version.match(/beta(\d+)/i);
+	return match ? `Beta ${match[1]}` : version;
+};
+
 export const modInformations: { [x: string]: App.ModInformation } = {
 	mineraculous: {
 		texturePredicate: (filename: string) => {

@@ -5,6 +5,7 @@
 	import SmartSearch from '$lib/components/search/SmartSearch.svelte';
 	import LanguageSelection from '$lib/components/LanguageSelection.svelte';
 	import AddonMenu from '$lib/components/addonMenu/AddonMenu.svelte';
+	import { MOD_VERSION, getShortVersion } from '$lib/utils/modInformations';
 
 	const drawerStore = getDrawerStore();
 
@@ -38,9 +39,9 @@
 		</a>
 		<span
 			class="lg:hidden badge variant-soft-primary text-[10px] sm:text-xs font-bold uppercase tracking-wider px-2 py-0.5 rounded-full flex-shrink-0"
-			title="Mod Version 1.0.0-beta14"
+			title={`Mod Version ${MOD_VERSION}`}
 		>
-			Beta 14
+			{getShortVersion(MOD_VERSION)}
 		</span>
 	</div>
 	<svelte:fragment slot="trail">
@@ -48,9 +49,9 @@
 			<p
 				class="text-base xl:text-2xl font-bold uppercase mr-2 text-surface-700 dark:text-surface-200"
 				id="version"
-				title="Mod Version 1.0.0-beta14"
+				title={`Mod Version ${MOD_VERSION}`}
 			>
-				Mod Version: <span class="text-primary-600 dark:text-primary-400">1.0.0-beta14</span>
+				Mod Version: <span class="text-primary-600 dark:text-primary-400">{MOD_VERSION}</span>
 			</p>
 		</div>
 		<div class="hidden lg:block">
