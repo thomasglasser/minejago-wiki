@@ -19,6 +19,6 @@
 	};
 </script>
 
-<button class="btn bg-surface-400 btn-base text-tertiary-500" on:click={triggerAddonModal}>
+<button type="button" class="btn variant-filled-surface w-full font-medium shadow-sm hover:variant-filled-primary transition-colors text-tertiary-500" on:click={triggerAddonModal}>
 	Addon Selection
 </button>

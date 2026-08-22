@@ -13,7 +13,9 @@
 		focus = true;
 	};
 	const onBlur = () => {
-		focus = false;
+		setTimeout(() => {
+			focus = false;
+		}, 200);
 	};
 
 	const getSearchResults = (value?: string) => {
@@ -42,7 +44,7 @@
 	<Search bind:value on:blur={onBlur} on:focus={onFocus} />
 	<Dropdown
 		id="search-dropdown"
-		open={focus && !!results}
+		open={focus && !!results && results.length > 0}
 		openLeft={mobile}
 		parentElement={searchElement}
 	>
@@ -50,7 +52,13 @@
 			<ul>
 				{#each results as result}
 					<li>
-						<a href={result.href}>
+						<a
+							href={result.href}
+							on:click={() => {
+								focus = false;
+							}}
+							class="block p-2 rounded-lg hover:bg-primary-500/10"
+						>
 							<span class="flex-auto">
 								{result.title}
 							</span>

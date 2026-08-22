@@ -57,8 +57,12 @@
 					{/if}
 				</svelte:fragment>
 				<svelte:fragment slot="summary">
-					<div class="text-primary-600 dark:text-primary-400 font-extrabold tracking-wide uppercase flex items-center">
-						<a href={`/category/${category.id}`} class="no-underline">
+					<div class="text-primary-600 dark:text-primary-400 font-extrabold tracking-wide uppercase flex items-center gap-2">
+						<a
+							href={`/category/${category.id}`}
+							on:click|stopPropagation={onListItemClick}
+							class="no-underline hover:underline"
+						>
 							<Label label={category.name} />
 						</a>
 						<AddonInformation addonName={category?.source} />
@@ -69,17 +73,21 @@
 						<ul class="space-y-1">
 							{#each Object.entries(category.entries).sort(([, a], [, b]) => (a.sort_number ?? 0) - (b.sort_number ?? 0)) as [id, entry]}
 								{@const href = `/category/${entry.category}/entry/${id}`}
-								<li class="flex items-center">
+								<li class="flex items-center w-full">
 									<a
 										{href}
 										on:click={onListItemClick}
-										class="transition-all duration-200 rounded-r-lg border-l-4 { $storeCurrentUrl === href ? 'navSelected border-primary-500 font-bold bg-primary-500/10' : 'border-transparent hover:bg-surface-300/30 dark:hover:bg-surface-600/30 hover:border-primary-500/50' }"
+										class="flex-1 transition-all duration-200 rounded-r-lg border-l-4 { $storeCurrentUrl === href ? 'navSelected border-primary-500 font-bold bg-primary-500/10' : 'border-transparent hover:bg-surface-300/30 dark:hover:bg-surface-600/30 hover:border-primary-500/50' }"
 									>
 										<span class="flex-auto">
 											<Label label={entry.name} />
 										</span>
 									</a>
-									<AddonInformation addonName={entry?.source} />
+									{#if entry?.source && entry.source !== 'mineraculous'}
+										<div class="ml-2 flex-shrink-0">
+											<AddonInformation addonName={entry.source} />
+										</div>
+									{/if}
 								</li>
 							{/each}
 						</ul>

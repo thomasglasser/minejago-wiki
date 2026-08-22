@@ -1,7 +1,7 @@
 <script lang="ts">
     import '../app.postcss';
     import '../theme.postcss';
-    import {AppShell, Drawer, Modal, Toast, getToastStore, initializeStores} from '@skeletonlabs/skeleton';
+    import {AppShell, Drawer, Modal, Toast, getDrawerStore, getToastStore, initializeStores} from '@skeletonlabs/skeleton';
     import {page} from '$app/stores';
     import {afterNavigate} from '$app/navigation';
     import {currentPageSource, storeCurrentUrl} from '$lib/stores/uiState';
@@ -22,6 +22,7 @@
     initializeStores();
     
     const toastStore = getToastStore();
+    const drawerStore = getDrawerStore();
     
     onMount(() => {
         if (browser) {
@@ -40,6 +41,8 @@
         if (elemPage !== null) {
             elemPage.scrollTop = 0;
         }
+        // Close drawer on navigation
+        drawerStore.close();
     });
     selectedAddonStore.subscribe((newSelectedAddonStoreValue) => {
         // Redirect to main page to avoid current page being an addon page that is going to be unloaded
@@ -77,7 +80,7 @@
     <title>Mineraculous Wiki</title>
 </svelte:head>
 
-<Drawer>
+<Drawer zIndex="z-[100]">
     <div class="p-2">
         <LanguageSelection />
     </div>

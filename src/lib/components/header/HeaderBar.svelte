@@ -15,12 +15,17 @@
 	}
 </script>
 
-<AppBar class="glass-header sticky top-0 z-50 p-4 transition-all duration-300">
+<AppBar class="glass-header sticky top-0 z-30 p-4 transition-all duration-300">
 	<svelte:fragment slot="lead">
 		<!-- Drawer Menu -->
-		<div class="lg:hidden mr-2 p-1 cursor-pointer" on:click={drawerOpen} on:keypress={drawerOpen}>
+		<button
+			type="button"
+			class="lg:hidden mr-2 p-1.5 rounded-lg flex items-center justify-center cursor-pointer hover:bg-surface-200/50 dark:hover:bg-surface-700/50 transition-colors"
+			on:click={drawerOpen}
+			aria-label="Open Navigation Menu"
+		>
 			<MenuIcon style="width: 20px; height: 20px; fill: rgb(var(--color-primary-500))" />
-		</div>
+		</button>
 		<LightSwitch origin="tr" />
 	</svelte:fragment>
 	<div class="flex flex-row">

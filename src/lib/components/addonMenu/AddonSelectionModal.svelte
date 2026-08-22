@@ -41,8 +41,8 @@
 	</ListBox>
 	<!-- prettier-ignore -->
 	<footer class="modal-footer {parent.regionFooter} flex justify-end space-x-2 pt-4 border-t border-surface-300 dark:border-surface-600">
-        <button class="btn {parent.buttonNeutral} hover:variant-soft" on:click={parent.onClose}>{parent.buttonTextCancel}</button>
-        <button class="btn {parent.buttonPositive} font-bold shadow-md hover:scale-105 transition-transform" on:click={onFormSubmit}>Apply Selection</button>
+        <button type="button" class="btn {parent.buttonNeutral} hover:variant-soft" on:click={parent.onClose}>{parent.buttonTextCancel}</button>
+        <button type="button" class="btn {parent.buttonPositive} font-bold shadow-md hover:scale-105 transition-transform" on:click={onFormSubmit}>Apply Selection</button>
     </footer>
 </div>
 
