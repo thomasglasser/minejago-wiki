@@ -9,9 +9,15 @@
 
 	$: rawLabel = $labelStore(label || '');
 	$: parsed = reader.parse(rawLabel);
-	$: html = writer
+	$: renderedHtml = writer
 		.render(parsed)
-		.replaceAll(new RegExp('entry:\/\/([a-z0-9_]+)\/([a-z0-9_]+)', 'g'), '/category/$1/entry/$2');
+		.replaceAll(/entry:\/\/([^\/"'#\s@]+)\/([^\/"'#\s@]+)(?:@[^"'#\s\)]+)?/g, '/category/$1/entry/$2')
+		.replaceAll(/category:\/\/([^\/"'#\s@]+)/g, '/category/$1')
+		.replaceAll(/book:\/\/[^\/"'#\s@]+/g, '/');
+	$: html = renderedHtml.replaceAll(
+		/<a\s+(?:[^>]*?\s+)?href=["'](https?:\/\/[^"']+)["']/gi,
+		'<a href="$1" target="_blank" rel="noopener noreferrer"'
+	);
 </script>
 
 <span class="formatted-label inline-block w-full">
