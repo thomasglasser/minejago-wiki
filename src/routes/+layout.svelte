@@ -81,6 +81,14 @@
 </svelte:head>
 
 <Drawer zIndex="z-[100]">
+    <div class="p-4 border-b border-surface-300/30 dark:border-surface-700/30 flex items-center justify-between">
+        <a href="/" class="text-base font-black uppercase bg-gradient-to-r from-secondary-500 via-primary-500 to-tertiary-500 bg-clip-text text-transparent no-underline">
+            Mineraculous Wiki
+        </a>
+        <span class="badge variant-soft-primary text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full">
+            1.0.0-beta14
+        </span>
+    </div>
     <div class="p-2">
         <LanguageSelection />
     </div>
@@ -103,9 +111,6 @@
     </svelte:fragment>
     <svelte:fragment slot="sidebarLeft">
         <Navigation class="hidden lg:block w-[300px]" />
-    </svelte:fragment>
-    <svelte:fragment slot="pageFooter">
-        <footer class="flex justify-end mb-1 mr-1"><p>Mineraculous Wiki</p></footer>
     </svelte:fragment>
     <div class="m-4">
         <slot />
