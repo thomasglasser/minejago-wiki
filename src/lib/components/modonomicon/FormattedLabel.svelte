@@ -6,9 +6,14 @@
 
 	const reader = new Parser();
 	const writer = new HtmlRenderer();
-	const parsed = reader.parse($labelStore(label));
-	const result = writer.render(parsed).replaceAll(new RegExp('entry:\/\/([a-z0-9_]+)\/([a-z0-9_]+)', 'g'), '../../$1/entry/$2');
-	export let html = result;
+
+	$: rawLabel = $labelStore(label || '');
+	$: parsed = reader.parse(rawLabel);
+	$: html = writer
+		.render(parsed)
+		.replaceAll(new RegExp('entry:\/\/([a-z0-9_]+)\/([a-z0-9_]+)', 'g'), '/category/$1/entry/$2');
 </script>
 
-{@html html}
+<span class="formatted-label inline-block w-full">
+	{@html html}
+</span>

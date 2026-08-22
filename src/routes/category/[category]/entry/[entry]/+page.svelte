@@ -63,7 +63,7 @@
 							<div class="w-full flex justify-center pt-4 border-t border-surface-300/50 dark:border-surface-600/50">
 								<div class="w-full max-w-4xl space-y-12">
 									{#each displayedEntry?.pages || [] as page}
-										<div class="glass-panel rounded-2xl p-6 md:p-10 relative">
+										<div class="glass-panel rounded-2xl p-4 sm:p-6 md:p-10 relative">
 											<ModonomiconPage modonomiconPage={page} />
 										</div>
 									{/each}
@@ -76,7 +76,7 @@
 				<div class="w-full flex justify-center">
 					<div class="w-full max-w-4xl space-y-12">
 						{#each displayedEntry?.pages || [] as page}
-							<div class="glass-panel rounded-2xl p-6 md:p-10 relative transition-all duration-300 hover:shadow-2xl hover:border-primary-500/20">
+							<div class="glass-panel rounded-2xl p-4 sm:p-6 md:p-10 relative transition-all duration-300 hover:shadow-2xl hover:border-primary-500/20">
 								<ModonomiconPage modonomiconPage={page} />
 							</div>
 						{/each}

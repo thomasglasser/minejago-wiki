@@ -14,13 +14,15 @@
 </script>
 
 {#if title}
-	<h4 class="mb-3">
+	<h4 class="text-xl md:text-2xl font-bold mb-4 text-primary-600 dark:text-primary-400">
 		<FormattedLabel label={title} />
 	</h4>
 {/if}
-<p class="text-left max-w-fit textblock">
+<div class="textblock text-base md:text-lg text-surface-700 dark:text-surface-200">
 	<FormattedLabel label={text} />
-</p>
-{#each mappedImages as image, key}
-	<img src={image} alt={images[key]} />
-{/each}
+</div>
+<div class="flex flex-wrap gap-4 justify-center my-4">
+	{#each mappedImages as image, key}
+		<img src={image} alt={images[key]} class="max-w-full rounded-xl object-contain shadow-md" />
+	{/each}
+</div>

@@ -30,7 +30,40 @@ body {
 }
 
 .textblock {
-	min-width: 80vw;
+	@apply w-full max-w-full leading-relaxed;
+	overflow-wrap: break-word;
+	word-break: break-word;
+}
+
+.textblock a,
+.formatted-label a,
+.prose a {
+	@apply text-primary-600 dark:text-primary-400 font-semibold underline decoration-primary-500/60 hover:decoration-primary-500 underline-offset-4 transition-all;
+}
+
+.textblock a:hover,
+.formatted-label a:hover,
+.prose a:hover {
+	@apply text-primary-700 dark:text-primary-300;
+}
+
+.formatted-label p {
+	margin-bottom: 0.75rem;
+}
+
+.formatted-label p:last-child {
+	margin-bottom: 0;
+}
+
+h1 .formatted-label p,
+h2 .formatted-label p,
+h3 .formatted-label p,
+h4 .formatted-label p,
+h5 .formatted-label p,
+h6 .formatted-label p,
+strong .formatted-label p {
+	display: inline;
+	margin-bottom: 0;
 }
 
 .craftingGrid {
@@ -65,21 +98,8 @@ body {
 		grid-template-columns: repeat(3, minmax(110px, 1fr));
 	}
 
-	.textblock {
-		min-width: 65ch;
-	}
-
 	.page {
 		min-height: 88vh;
-	}
-
-	.craftingRecipe {
-		left: 50%;
-		margin-left: -25vw;
-		margin-right: -50vw;
-		max-width: 50vw;
-		position: relative;
-		right: 50%;
 	}
 }
 
