@@ -29,7 +29,7 @@
 	</svelte:fragment>
 	<div class="flex items-center gap-2 sm:gap-3 overflow-hidden">
 		<a
-			class="text-sm sm:text-lg md:text-2xl lg:text-3xl font-extrabold uppercase bg-gradient-to-r from-secondary-500 via-primary-500 to-tertiary-500 bg-clip-text text-transparent hover:scale-105 transition-transform duration-300 no-underline truncate"
+			class="text-base sm:text-xl md:text-2xl lg:text-3xl font-extrabold uppercase bg-gradient-to-r from-secondary-500 via-primary-500 to-tertiary-500 bg-clip-text text-transparent hover:scale-105 transition-transform duration-300 no-underline truncate"
 			href="/"
 			id="mineraculous_wiki"
 			title="Return to main page"
@@ -37,14 +37,22 @@
 			Mineraculous Wiki
 		</a>
 		<span
-			id="version"
-			class="badge variant-soft-primary text-[10px] sm:text-xs font-bold uppercase tracking-wider px-2 py-0.5 rounded-full flex-shrink-0"
+			class="lg:hidden badge variant-soft-primary text-[10px] sm:text-xs font-bold uppercase tracking-wider px-2 py-0.5 rounded-full flex-shrink-0"
 			title="Mod Version 1.0.0-beta14"
 		>
-			1.0.0-beta14
+			Beta 14
 		</span>
 	</div>
 	<svelte:fragment slot="trail">
+		<div class="hidden lg:block">
+			<p
+				class="text-base xl:text-2xl font-bold uppercase mr-2 text-surface-700 dark:text-surface-200"
+				id="version"
+				title="Mod Version 1.0.0-beta14"
+			>
+				Mod Version: <span class="text-primary-600 dark:text-primary-400">1.0.0-beta14</span>
+			</p>
+		</div>
 		<div class="hidden lg:block">
 			<AddonMenu />
 		</div>
